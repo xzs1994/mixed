@@ -5,16 +5,16 @@
  * Date: 2018/4/28
  * Time: 17:24
  */
-require_once "phar://demo.phar/test.php";
+//require_once "phar://demo.phar/test.php";
 
 $phar = new Phar('fbnq.phar');//创建phar实例
 $phar->buildFromDirectory(__DIR__ . '/../practices/test', '/\.php$/');//需要压缩的目录
-$phar->compressFiles(Phar::GZ);//目录压缩格式
+$phar->compressFiles(4096);//目录压缩格式
 $phar->stopBuffering();
 $phar->setStub($phar->createDefaultStub('lib_config.php'));
 
-$phar = new Phar('demo.phar');
 $phar->extractTo('fbnq');//将phar转化回directory
+$phar->convertToData(Phar::ZIP);//将phar文件生成zip格式文件
 die;
 
 class mix
