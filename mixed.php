@@ -5,7 +5,7 @@
  * Date: 2018/4/28
  * Time: 17:24
  */
-//require_once "phar://demo.phar/test.php";
+//require_once "phar://demo.phar/test.php";//引入phar文件
 
 $phar = new Phar('fbnq.phar');//创建phar实例
 $phar->buildFromDirectory(__DIR__ . '/../practices/test', '/\.php$/');//需要压缩的目录
