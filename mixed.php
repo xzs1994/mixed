@@ -6,6 +6,30 @@
  * Time: 17:24
  */
 
+class mix
+{
+    private $name;
+
+    public function __construct($name)
+    {
+        $this->name = $name;
+    }
+
+    private function name()
+    {
+        return $this->name . " is a handsome man";
+    }
+
+    public static function getName($name)
+    {
+        $name = new static($name);//在静态方法中对类进行实例
+        return $name->name();
+    }
+}
+
+echo mix::getName('徐卓善');
+
+die;
 /**
  * 生成斐波那契数列
  *
